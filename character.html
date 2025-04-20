@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Choose Your Character</title>
+  <title>Choose Character</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Choose Your Trump</h1>
-  <button onclick="window.location.href='donor.html'">Next</button>
+  <div class="character-page">
+    <h1 class="character-title">Choose your Character!</h1>
+    <p class="character-subtitle"><em>Double click on image to Continue</em></p>
+    <h2 class="character-name">Pres. Donald Trump</h2>
+
+    <div class="character-image" ondblclick="selectCharacter()">
+      <!-- You can replace this with an <img> tag later -->
+    </div>
+
+    <p class="coming-soon">More Candidates coming soon!</p>
+  </div>
+
+  <script>
+    function selectCharacter() {
+      localStorage.setItem('selectedCharacter', 'donald-trump');
+      window.location.href = 'donor.html';
+    }
+  </script>
 </body>
 </html>

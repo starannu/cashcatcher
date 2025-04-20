@@ -2,11 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Choose Your Donor</title>
+  <title>Choose Donor</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Choose Your Donor</h1>
-  <button onclick="window.location.href='how-to-play.html'">Next</button>
+  <div class="donor-page">
+    <h1 class="donor-title">Choose your Donor!</h1>
+    <p class="donor-subtitle"><em>Double click on image to Continue</em></p>
+
+    <div class="donor-grid">
+      <!-- Donor 1 -->
+      <div class="donor-card">
+        <h2>Timothy Mellon</h2>
+        <div class="donor-image" ondblclick="selectDonor('timothy-mellon')"></div>
+        <p>American Businessman</p>
+      </div>
+
+      <!-- Donor 2 -->
+      <div class="donor-card">
+        <h2>Elon Musk</h2>
+        <div class="donor-image" ondblclick="selectDonor('elon-musk')"></div>
+        <p>Senior Advisor to the President of the United States</p>
+      </div>
+
+      <!-- Donor 3 -->
+      <div class="donor-card">
+        <h2>Miriam Adelson</h2>
+        <div class="donor-image" ondblclick="selectDonor('miriam-adelson')"></div>
+        <p>Israeli–American Physician</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function selectDonor(name) {
+      localStorage.setItem('selectedDonor', name);
+      window.location.href = 'play.html';
+    }
+  </script>
 </body>
 </html>

@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Game Over</title>
+  <title>Lose</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Oops! You Missed Too Much Money.</h1>
-  <button onclick="window.location.href='notes.html'">See the Data</button>
+  <div class="lose-card">
+    <p>
+      Oh no! You did not manage to<br />
+      get more donations from them.<br />
+      Please try again.<br />
+      Let's work hard!
+    </p>
+    <button class="play-again-button" onclick="window.location.href='game.html'">Play Again</button>
+  </div>
 </body>
 </html>

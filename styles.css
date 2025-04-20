@@ -1,0 +1,203 @@
+
+/* This is a comment in CSS */
+
+body {
+  font-family: 'Instrument Serif', serif;
+  background: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* -------------------------------Styling for the Character Selection Page */
+.character-page {
+  padding-top: 60px;
+}
+
+.character-title {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.character-subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.character-name {
+  font-size: 28px;
+  margin: 16px 0;
+}
+
+.character-image {
+  width: 180px;
+  height: 280px;
+  background-color: #d9d9d9;
+  margin: 0 auto;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.coming-soon {
+  margin-top: 40px;
+  font-size: 18px;
+} 
+
+/* -------------------------------------------- Donor Page Styles --- */
+.donor-page {
+  padding-top: 40px;
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+}
+
+.donor-title {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.donor-subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.donor-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.donor-card {
+  width: 180px;
+}
+
+.donor-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.donor-image {
+  width: 180px;
+  height: 280px;
+  background-color: #d9d9d9;
+  margin: 0 auto 10px auto;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.donor-card p {
+  font-size: 14px;
+}
+
+/* ------------------------------------ How to Play Page Styles --- */
+.how-to-play-page {
+  padding-top: 100px;
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+}
+
+.how-title {
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.how-text {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.begin-button {
+  font-size: 24px;
+  padding: 10px 40px;
+  background-color: #d9d9d9;
+  border: none;
+  cursor: pointer;
+  font-family: 'Instrument Serif', serif;
+  transition: background-color 0.3s ease;
+}
+
+.begin-button:hover {
+  background-color: #c0c0c0;
+}
+
+
+
+/* -------------------------------------- Win Page Styles --- */
+.win-card {
+  background-color: #d9d9d9;
+  padding: 60px 40px;
+  margin: 100px auto;
+  width: 70%;
+  max-width: 600px;
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.collect-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #f5c5c5;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Instrument Serif', serif;
+  transition: background-color 0.3s ease;
+}
+
+.collect-button:hover {
+  background-color: #e5a9a9;
+}
+
+
+/* ----------------------------------- Dev Buttons on Game Page --- */
+.dev-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dev-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  background-color: #d9d9d9;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dev-buttons button:hover {
+  background-color: #c7c7c7;
+}
+
+
+/* --------------------------- Lose Page Styles --- */
+.lose-card {
+  background-color: #d9d9d9;
+  padding: 60px 40px;
+  margin: 100px auto;
+  width: 70%;
+  max-width: 600px;
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.play-again-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #f5c5c5;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Instrument Serif', serif;
+  transition: background-color 0.3s ease;
+}
+
+.play-again-button:hover {
+  background-color: #e5a9a9;
+}
