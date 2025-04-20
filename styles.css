@@ -9,6 +9,43 @@ body {
   text-align: center;
 }
 
+.home-page {
+  text-align: center;
+  padding: 80px 20px;
+  font-family: 'Instrument Serif', serif;
+}
+
+.home-title {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.home-description {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  line-height: 1.6;
+}
+
+.start-button {
+  font-size: 22px;
+  padding: 12px 30px;
+  background-color: #d9d9d9;
+  border: none;
+  cursor: pointer;
+  font-family: 'Instrument Serif', serif;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #c4c4c4;
+}
+
 /* -------------------------------Styling for the Character Selection Page */
 .character-page {
   padding-top: 60px;
@@ -29,19 +66,34 @@ body {
   margin: 16px 0;
 }
 
-.character-image {
-  width: 180px;
-  height: 280px;
-  background-color: #d9d9d9;
+.trump-img {
+  width: 380px;
+  height: auto;
+  display: block;
   margin: 0 auto;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 .coming-soon {
   margin-top: 40px;
   font-size: 18px;
 } 
+
+
+.shake-paper {
+  animation: shake 0.7s infinite;
+  transform-origin: center;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-2px, 2px) rotate(-1deg); }
+  40% { transform: translate(2px, -1px) rotate(1deg); }
+  60% { transform: translate(-1px, 2px) rotate(0deg); }
+  80% { transform: translate(2px, 1px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+
 
 /* -------------------------------------------- Donor Page Styles --- */
 .donor-page {
