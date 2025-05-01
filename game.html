@@ -1,16 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cash Catcher – Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
-    <div id="controls">
-      <button id="left-arrow">⬅️</button>
-      <button id="right-arrow">➡️</button>
-    </div>
-    <div id="score">$0</div>
-  
-    <!-- Temporary Dev Buttons -->
-    <div class="dev-buttons">
-      <button onclick="window.location.href='win.html'">Go to Win</button>
-      <button onclick="window.location.href='lose.html'">Go to Lose</button>
-    </div>
-  
-    <script src="script.js"></script>
-  </body>
+  <div class="game-header">
+    <div id="timer">Time: 30s</div>
+    <a class="exit-link" href="index.html">Exit to Home</a>
+    <div id="score">Score: 0</div>
+  </div>
+
+  <div class="game-area">
+    <div id="money-container"></div>
+    <div id="trump"></div>
+  </div>
+
+  <div class="controls">
+    <button id="left-arrow">⬅️</button>
+    <button id="right-arrow">➡️</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

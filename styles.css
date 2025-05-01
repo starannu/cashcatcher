@@ -1,50 +1,58 @@
 
-/* This is a comment in CSS */
+/* stylesheet */
 
+/* Home Page Styling */
 body {
-  font-family: 'Instrument Serif', serif;
-  background: white;
   margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.home-page {
-  text-align: center;
-  padding: 80px 20px;
+  background-color: #5c5c5c;
   font-family: 'Instrument Serif', serif;
+  color: white;
+  text-align: center;
 }
 
-.home-title {
-  font-size: 48px;
-  margin-bottom: 10px;
+.home-wrapper {
+  padding: 100px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.home-subtitle {
-  font-size: 18px;
+.cash-catcher-title {
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 4px 4px #00284d;
   margin-bottom: 40px;
+  transform: rotate(-6deg);
+  display: inline-block;
 }
 
-.home-description {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto 50px auto;
+.home-tagline {
+  font-size: 20px;
   line-height: 1.6;
+  margin-bottom: 60px;
 }
 
-.start-button {
-  font-size: 22px;
-  padding: 12px 30px;
-  background-color: #d9d9d9;
-  border: none;
-  cursor: pointer;
-  font-family: 'Instrument Serif', serif;
-  transition: background-color 0.3s ease;
+.home-buttons .home-link {
+  display: block;
+  font-size: 28px;
+  color: white;
+  text-shadow: 2px 2px #00284d;
+  text-decoration: none;
+  margin: 10px 0;
+  transition: transform 0.2s ease;
 }
 
-.start-button:hover {
-  background-color: #c4c4c4;
+.home-link:hover {
+  transform: scale(1.05);
+  color: #f0f0f0;
 }
+
+.home-footer {
+  margin-top: 100px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+
 
 /* -------------------------------Styling for the Character Selection Page */
 .character-page {
@@ -173,36 +181,82 @@ body {
   background-color: #c0c0c0;
 }
 
+/* --------------------------------------------- Game Page Styling --- */
 
 
-/* -------------------------------------- Win Page Styles --- */
-.win-card {
+/* Header with timer, score, and exit */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  font-size: 18px;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ccc;
+}
+
+#timer, #score {
   background-color: #d9d9d9;
-  padding: 60px 40px;
-  margin: 100px auto;
-  width: 70%;
-  max-width: 600px;
-  text-align: center;
-  font-family: 'Instrument Serif', serif;
-  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.exit-link {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.exit-link:hover {
+  text-decoration: underline;
+}
+
+/* Game play area */
+.game-area {
+  margin: 40px auto;
+  width: 80%;
+  height: 500px;
+  background-color: #6e6e6e;
+  position: relative;
+  border: 3px solid #3399ff;
+  overflow: hidden;
+}
+
+/* Player block (Trump) */
+#trump {
+  width: 50px;
+  height: 50px;
+  background-color: navy;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 8px;
 }
 
-.collect-button {
-  margin-top: 30px;
+/* Falling money blocks */
+.money {
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  position: absolute;
+  top: 0;
+  border-radius: 4px;
+}
+
+/* Controls at bottom */
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.controls button {
   padding: 10px 20px;
-  background-color: #f5c5c5;
-  font-size: 20px;
-  border: none;
+  margin: 0 20px;
+  font-size: 24px;
   cursor: pointer;
-  font-family: 'Instrument Serif', serif;
-  transition: background-color 0.3s ease;
 }
-
-.collect-button:hover {
-  background-color: #e5a9a9;
-}
-
 
 /* ----------------------------------- Dev Buttons on Game Page --- */
 .dev-buttons {
