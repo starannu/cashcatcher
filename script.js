@@ -1,71 +1,59 @@
-
 const trump = document.getElementById("trump");
+const container = document.querySelector(".game-area");
 const moneyContainer = document.getElementById("money-container");
 const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
 const scoreDisplay = document.getElementById("score");
-const timerDisplay = document.getElementById("timer");
-let timeLeft = 30;
-let gameEnded = false;
+const timerDisplay = document.getElementById("timer"); // Optional if still shown
 
 let score = 0;
-let velocity = 5;
 let moveDirection = 0;
+let velocity = 5;
+let gameEnded = false;
 
-// Move Trump
+let totalMoneyDropped = 0;
+const totalToDrop = 23;
+
+scoreDisplay.textContent = "Score: 0";
+if (timerDisplay) timerDisplay.textContent = ""; // You can remove or repurpose
+
+// Game Loop for Movement
 function gameLoop() {
-  let trumpPos = trump.offsetLeft;
+  const trumpPos = trump.offsetLeft;
+  const containerRect = container.getBoundingClientRect();
+  const trumpRect = trump.getBoundingClientRect();
 
-  if (moveDirection === -1 && trumpPos > 0) {
+  const leftLimit = 0;
+  const rightLimit = container.offsetWidth - trump.offsetWidth;
+
+  if (moveDirection === -1 && trump.offsetLeft > leftLimit) {
     trump.style.left = trumpPos - velocity + "px";
   }
-  if (moveDirection === 1 && trumpPos < window.innerWidth - trump.offsetWidth) {
+  if (moveDirection === 1 && trump.offsetLeft < rightLimit) {
     trump.style.left = trumpPos + velocity + "px";
   }
 
   requestAnimationFrame(gameLoop);
 }
 
-// Start the game loop
-gameLoop();
-
-// Start the timer
-const timerInterval = setInterval(() => {
-  timeLeft--;
-  timerDisplay.textContent = "Time: " + timeLeft + "s";
-
-  if (timeLeft <= 0) {
-    clearInterval(timerInterval);
-    gameEnded = true;
-    // Example: decide win or lose based on score
-  if (score >= 10) {
-    window.location.href = "win.html";
-  } else {
-    window.location.href = "lose.html";
-  }
-  }
-}, 1000);
-
-// Start spawning money every 1.5s
-setInterval(spawnMoney, 1500);
-
-
-// Spawn Money
+// Spawn One Falling Money
 function spawnMoney() {
-if (gameEnded) return;
+  if (gameEnded || totalMoneyDropped >= totalToDrop) return;
+
+  totalMoneyDropped++;
 
   const money = document.createElement("div");
   money.classList.add("money");
 
-  const x = Math.random() * (window.innerWidth - 30);
-  money.style.left = x + "px";
+  const x = Math.random() * (container.offsetWidth - 30);
+  money.style.left = `${x}px`;
 
-  moneyContainer.appendChild(money);
+  container.appendChild(money);
 
   let y = 0;
   const fallInterval = setInterval(() => {
     y += 3;
-    money.style.top = y + "px";
+    money.style.top = `${y}px`;
 
     const moneyRect = money.getBoundingClientRect();
     const trumpRect = trump.getBoundingClientRect();
@@ -77,44 +65,82 @@ if (gameEnded) return;
       moneyRect.top <= trumpRect.bottom
     ) {
       score++;
-      scoreDisplay.textContent = "Score: " + score;
+      scoreDisplay.textContent = `Score: ${score}`;
       money.remove();
       clearInterval(fallInterval);
+
+      if (score === totalToDrop) {
+        gameEnded = true;
+        window.location.href = "win.html";
+      }
     }
 
-    if (y > window.innerHeight) {
+    if (y > container.offsetHeight) {
       money.remove();
       clearInterval(fallInterval);
+
+      if (totalMoneyDropped === totalToDrop && score < totalToDrop) {
+        gameEnded = true;
+        window.location.href = "lose.html";
+      }
     }
   }, 20);
 }
 
-// Mouse Movement
-document.addEventListener("mousemove", (e) => {
-    const mouseX = e.clientX;
-    const trumpWidth = trump.offsetWidth;
-    let newLeft = mouseX - trumpWidth / 2;
-  
-    // Clamp within screen bounds
-    newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - trumpWidth));
-    trump.style.left = newLeft + "px";
-  }); 
+// Start Spawning Money (max 23)
+const dropInterval = setInterval(() => {
+  if (totalMoneyDropped >= totalToDrop || gameEnded) {
+    clearInterval(dropInterval);
+  } else {
+    spawnMoney();
+  }
+}, 1000); 
 
+// Adjust spawn speed here (in ms)
+const timerInterval = setInterval(() => {
+  if (gameEnded) {
+    clearInterval(timerInterval);
+    return;
+  }
 
-// Arrow Button Events
+  timeLeft--;
+  if (timerDisplay) {
+    timerDisplay.textContent = `Time: ${timeLeft}s`;
+  }
+
+  if (timeLeft <= 0) {
+    clearInterval(timerInterval);
+    gameEnded = true;
+
+    if (score === totalToDrop) {
+      window.location.href = "win.html";
+    } else {
+      window.location.href = "lose.html";
+    }
+  }
+}, 1000);
+
+// Arrow Button Movement
 leftArrow.addEventListener("mousedown", () => (moveDirection = -1));
 rightArrow.addEventListener("mousedown", () => (moveDirection = 1));
-
 leftArrow.addEventListener("mouseup", () => (moveDirection = 0));
 rightArrow.addEventListener("mouseup", () => (moveDirection = 0));
 
-// For touch devices
+// Touch support
 leftArrow.addEventListener("touchstart", () => (moveDirection = -1));
 rightArrow.addEventListener("touchstart", () => (moveDirection = 1));
 leftArrow.addEventListener("touchend", () => (moveDirection = 0));
 rightArrow.addEventListener("touchend", () => (moveDirection = 0));
 
-// Start
-gameLoop();
-setInterval(spawnMoney, 1500);
+// Optional: Mouse movement within container
+document.addEventListener("mousemove", (e) => {
+  const containerRect = container.getBoundingClientRect();
+  const mouseX = e.clientX - containerRect.left;
 
+  let newLeft = mouseX - trump.offsetWidth / 2;
+  newLeft = Math.max(0, Math.min(newLeft, container.offsetWidth - trump.offsetWidth));
+  trump.style.left = `${newLeft}px`;
+});
+
+// Initialize movement loop
+gameLoop();

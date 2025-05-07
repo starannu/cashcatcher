@@ -4,15 +4,26 @@
   <meta charset="UTF-8" />
   <title>Cash Catcher – Game</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="game-header">
-    <div id="timer">Time: 30s</div>
-    <a class="exit-link" href="index.html">Exit to Home</a>
-    <div id="score">Score: 0</div>
-  </div>
 
-  <div class="game-area">
+<body>
+  <header class="game-header">
+    <nav class="nav-links">
+      <a href="lose.html">End Game</a>
+      <span>CashCatcher</span>
+      <a href="index.html">Exit to Home</a>
+    </nav>
+  </header>
+
+  <h2 class="donor-name">Donor: Elon Musk</h2>
+
+    <div class="game-area">
+    <div class="score-timer-overlay">
+      <p id="score">Score: 0</p>
+      <p id="timer">Timer: 25s</p>
+    </div>
+
     <div id="money-container"></div>
     <div id="trump"></div>
   </div>

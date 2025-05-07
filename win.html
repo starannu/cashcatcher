@@ -8,27 +8,22 @@
 </head>
 <body>
   <div class="win-card">
-    <p id="win-message">Congrats you collected all the donations!</p>
-    <button class="collect-button" onclick="window.location.href='notes.html'">Collect winnings here!</button>
+    <h1>🎉 Congratulations!</h1>
+    <p class="win-message">
+      You collected <strong>all 23 donations</strong><br>
+      totaling <span class="highlighted-amount">$238 million</span><br>
+      from <span class="donor-name">Elon Musk</span>!
+    </p>
+  
+    <p class="reflection">
+      In a world where money rains from the top,<br>
+      who gets heard — and who gets left behind?
+    </p>
+  
+    <div class="win-buttons">
+      <a href="notes.html" class="button">View Notes</a>
+      <a href="index.html" class="button">Play Again</a>
+    </div>
   </div>
-
-  <script>
-    // Map of donors to donation amounts
-    const donorData = {
-      "elon-musk": { name: "Elon Musk", amount: "238" },
-      "timothy-mellon": { name: "Timothy Mellon", amount: "50" },
-      "miriam-adelson": { name: "Miriam Adelson", amount: "92" }
-    };
-
-    // Get the selected donor from storage
-    const selectedDonorKey = localStorage.getItem("selectedDonor");
-    const donor = donorData[selectedDonorKey];
-
-    // If found, update the message
-    if (donor) {
-      document.getElementById("win-message").textContent =
-        `Congrats you collected all ${donor.amount} million dollars of donation by ${donor.name}!`;
-    }
-  </script>
 </body>
 </html>
